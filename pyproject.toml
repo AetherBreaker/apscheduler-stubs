@@ -1,0 +1,30 @@
+[project]
+  dependencies = [
+    "apscheduler>=3.11.2",
+  ]
+  description = "Add your description here"
+  name = "apscheduler-stubs"
+  readme = "README.md"
+  requires-python = ">=3.14"
+  version = "0.1.0.dev1"
+
+[build-system]
+  build-backend = "uv_build"
+  requires = [
+    "uv_build>=0.11.2,<0.12.0",
+  ]
+
+[tool.uv.build-backend]
+  module-name = "apscheduler-stubs"
+
+[tool.ruff]
+  extend = "../pyproject.toml"
+
+  src = [
+    "./src",
+  ]
+
+[tool.uv.workspace]
+  members = [
+    "apscheduler-stubs",
+  ]
