@@ -1,4 +1,6 @@
-from _typeshed import Incomplete
+# Standard library imports
+from datetime import datetime
+from typing import Any
 
 __all__ = [
   "EVENT_ALL",
@@ -63,24 +65,32 @@ EVENT_ALL = (  # noqa: PYI026
 )
 
 class SchedulerEvent:
-  code: Incomplete
-  alias: Incomplete
-  def __init__(self, code, alias=None) -> None: ...
-  def __repr__(self) -> str: ...
+  code: int
+  alias: str | None
+  def __init__(self, code: int, alias: str | None = None) -> None: ...
 
 class JobEvent(SchedulerEvent):
-  code: Incomplete
-  job_id: Incomplete
-  jobstore: Incomplete
-  def __init__(self, code, job_id, jobstore) -> None: ...
+  code: int
+  job_id: str
+  jobstore: str
+  def __init__(self, code: int, job_id: str, jobstore: str) -> None: ...
 
 class JobSubmissionEvent(JobEvent):
-  scheduled_run_times: Incomplete
-  def __init__(self, code, job_id, jobstore, scheduled_run_times) -> None: ...
+  scheduled_run_times: list[datetime]
+  def __init__(self, code: int, job_id: str, jobstore: str, scheduled_run_times: list[datetime]) -> None: ...
 
 class JobExecutionEvent(JobEvent):
-  scheduled_run_time: Incomplete
-  retval: Incomplete
-  exception: Incomplete
-  traceback: Incomplete
-  def __init__(self, code, job_id, jobstore, scheduled_run_time, retval=None, exception=None, traceback=None) -> None: ...
+  scheduled_run_time: datetime
+  retval: Any | None
+  exception: BaseException | None
+  traceback: str | None
+  def __init__(
+    self,
+    code: int,
+    job_id: str,
+    jobstore: str,
+    scheduled_run_time: datetime,
+    retval: Any | None = None,
+    exception: BaseException | None = None,
+    traceback: str | None = None,
+  ) -> None: ...
