@@ -1,3 +1,11 @@
 {
-    "python.analysis.typeCheckingMode": "standard"
+    "python.analysis.typeCheckingMode": "standard",
+    "python.analysis.packageIndexDepths": [
+        {
+            "name": "apscheduler",
+            "depth": 3,
+            "includeAllSymbols": true
+        }
+    ],
+    "python.analysis.useLibraryCodeForTypes": true
 }
