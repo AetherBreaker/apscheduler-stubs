@@ -1,12 +1,9 @@
 [project]
-  dependencies = [
-    "apscheduler>=3.11.2",
-  ]
-  description = "Add your description here"
-  name = "apscheduler-stubs"
-  readme = "README.md"
+  description     = "Add your description here"
+  name            = "apscheduler-stubs"
+  readme          = "README.md"
   requires-python = ">=3.14"
-  version = "0.1.0.dev1"
+  version         = "0.1.0.dev1"
 
 [build-system]
   build-backend = "uv_build"
@@ -14,17 +11,24 @@
     "uv_build>=0.11.2,<0.12.0",
   ]
 
+[dependency-groups]
+  dev = [
+    "apscheduler>=3.11.2",
+    "mypy>=2.1.0",
+    "pyright>=1.1.410",
+  ]
 [tool.uv.build-backend]
   module-name = "apscheduler-stubs"
+
+
+[tool.uv.sources]
+  apscheduler = [
+    { path = "D:\\SFT Software Projects\\apscheduler", editable = true, marker = "sys_platform == 'win32'" },
+  ]
 
 [tool.ruff]
   extend = "../pyproject.toml"
 
   src = [
     "./src",
-  ]
-
-[tool.uv.workspace]
-  members = [
-    "apscheduler-stubs",
   ]
