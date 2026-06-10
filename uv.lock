@@ -45,7 +45,13 @@ requires-dist = [
     { name = "twisted", marker = "extra == 'twisted'" },
     { name = "tzlocal", specifier = ">=3.0" },
 ]
-provides-extras = ["etcd", "gevent", "mongodb", "redis", "rethinkdb", "sqlalchemy", "tornado", "twisted", "zookeeper", "test", "doc"]
+provides-extras = ["doc", "etcd", "gevent", "mongodb", "redis", "rethinkdb", "sqlalchemy", "test", "tornado", "twisted", "zookeeper"]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "apscheduler-stubs", marker = "sys_platform != 'win32'", specifier = ">=0.1.0.dev1" },
+    { name = "apscheduler-stubs", marker = "sys_platform == 'win32'", editable = "D:/SFT Software Projects/apscheduler-stubs" },
+]
 
 [[package]]
 name = "apscheduler"
@@ -65,12 +71,8 @@ wheels = [
 
 [[package]]
 name = "apscheduler-stubs"
-version = "0.1.0.dev1"
+version = "0.1.0.dev2"
 source = { editable = "." }
-dependencies = [
-    { name = "apscheduler", source = { editable = "D:/SFT Software Projects/apscheduler" }, marker = "sys_platform == 'win32'" },
-    { name = "apscheduler", version = "3.11.2", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'win32'" },
-]
 
 [package.dev-dependencies]
 dev = [
@@ -81,10 +83,6 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "apscheduler", marker = "sys_platform != 'win32'", specifier = ">=3.11.2" },
-    { name = "apscheduler", marker = "sys_platform == 'win32'", editable = "D:/SFT Software Projects/apscheduler" },
-]
 
 [package.metadata.requires-dev]
 dev = [

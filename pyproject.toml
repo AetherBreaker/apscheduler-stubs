@@ -3,7 +3,7 @@
   name            = "apscheduler-stubs"
   readme          = "README.md"
   requires-python = ">=3.14"
-  version         = "0.1.0.dev1"
+  version         = "0.1.0.dev2"
 
 [build-system]
   build-backend = "uv_build"
